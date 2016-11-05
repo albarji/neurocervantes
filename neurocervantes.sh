@@ -10,4 +10,4 @@
 MODELFILE="elquijote"
 TEMPERATURE=0.5
 MAXCHARS=10000
-THEANO_FLAGS='device=gpu' python neurowriter-generate.py $MODELFILE $TEMPERATURE "$1" $MAXCHARS
+THEANO_FLAGS='device=gpu' python neurowriter-generate.py $MODELFILE $TEMPERATURE "$1" $MAXCHARS 2> /dev/null

@@ -39,7 +39,6 @@ length = args.length
 with open(modelfile + "_def.json", "r") as f:
     model = model_from_json(json.load(f))
 # Load model weights
-print('Loading pre-trained weights...')
 model.load_weights(modelfile + ".h5")
 # Load character indexes
 with open(modelfile + "_idx.json", "r") as f:
@@ -50,14 +49,12 @@ indices_char = {int(key) : idx["indices_char"][key]
 
 
 # Helper function to sample an index from a probability array
-#TODO: make this common function with training
 def sample(a, temperature=1.0):
     a = np.log(a) / temperature
     a = np.exp(a) / np.sum(np.exp(a))
     return np.argmax(np.random.multinomial(1, a, 1))
 
 # Helper function to generate text
-#TODO: make this common function with training
 def gentxt(seed, char_indices, indices_char, diversity, length):
     print(seed, end="")
     # Pad seed with blanks if needed
@@ -81,5 +78,7 @@ def gentxt(seed, char_indices, indices_char, diversity, length):
     print("")
 
 # Generate text with the model
+print("Estoy listo. Pulsa Enter para empezar...")
+input()
 gentxt(seed, char_indices, indices_char, diversity, length)
 
