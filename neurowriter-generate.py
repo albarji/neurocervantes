@@ -56,7 +56,7 @@ def sample(a, temperature=1.0):
 
 # Helper function to generate text
 def gentxt(seed, char_indices, indices_char, diversity, length):
-    print(seed, end="")
+    print(seed.rstrip(), end="")
     # Pad seed with blanks if needed
     if len(seed) < maxlen:
         seed = (" " * (maxlen - len(seed)) ) + seed
@@ -79,6 +79,6 @@ def gentxt(seed, char_indices, indices_char, diversity, length):
 
 # Generate text with the model
 print("Estoy listo. Pulsa Enter para empezar...")
-input()
+input("")
 gentxt(seed, char_indices, indices_char, diversity, length)
 
